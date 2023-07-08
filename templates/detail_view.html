@@ -1,4 +1,4 @@
-{% extends "base.html"%}
+{% extends "base.html" %}
 
 {%block content %}
     <div>
@@ -6,7 +6,8 @@
     {{ post.body}}
 
     <p>
-    <a href="{%url 'post_update' post.pk %}">update.post</a>
+      <a href="{%url 'post_update' post.pk %}">Update.post</a>
+      <h4><a href="{%url 'post_delete' post.pk %}">Delete.post</a></h4>
     </p>
     </div>
 
