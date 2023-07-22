@@ -7,12 +7,21 @@
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
 <body>
+   
     <header>
         <h1><a href="{% url 'home' %}">Django Blog MAY2023</a></h1>
         <a href="{% url 'post_new' %}">New Post</a>
     </header>
-    <a href="{% url 'sing_up' %}">Sing up</a> |
-    <a href="{% url 'login' %}">Log In</a> 
+    {% if user.is_authenticated %}
+    <p>Epale {{ user.username }}</p>
+    <a href="{% url 'logout' %}">Log out</a>
+
+    {% else %}
+    <p>No estas logeado</p>
+        <a href="{% url 'sing_up' %}">Sing up</a> |
+        <a href="{% url 'login' %}">Log In</a> 
+
+    {% endif %}
 
     {% block content %}
     
